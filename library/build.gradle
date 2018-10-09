@@ -1,7 +1,12 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group='org.bitbucket.ilhasoft'
+
+ext.androidXVersion = '1.0.0'
+ext.apacheCommonsValidatorsVersion = '1.4.0'
+ext.robolectricVersion = '4.0-beta-1'
 
 android {
     compileSdkVersion 28
@@ -18,13 +23,18 @@ android {
         versionName "1.0.0"
         consumerProguardFiles 'proguard-rules.pro'
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'androidx.appcompat:appcompat:1.0.0'
-    compile 'com.google.android.material:material:1.0.0'
-    testCompile 'junit:junit:4.12'
+    implementation "androidx.appcompat:appcompat:$androidXVersion"
+    implementation "commons-validator:commons-validator:$apacheCommonsValidatorsVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    api "com.google.android.material:material:$androidXVersion"
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
 }
 
 // build a jar with source files
@@ -49,6 +59,9 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 artifacts {
     archives sourcesJar
     archives javadocJar
+}
+repositories {
+    mavenCentral()
 }
 
 // uncomment to build a jar file in addition to the default aar file
