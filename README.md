@@ -1,6 +1,7 @@
 # Data Binding Validator by Ilhasoft
 
 [![Release](https://jitpack.io/v/Ilhasoft/data-binding-validator.svg?style=flag-square?style=flat-square)](https://jitpack.io/#Ilhasoft/data-binding-validator)
+[![Build Status](https://travis-ci.com/wzieba/data-binding-validator.svg?branch=master)](https://travis-ci.com/wzieba/data-binding-validator)
 
 The Data Binding Validator makes it easy and quick to validate fields in forms using data binding framework.
 

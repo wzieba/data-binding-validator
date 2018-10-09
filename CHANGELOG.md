@@ -52,3 +52,11 @@
 * **Initial release**;
 * Created base of this library;
 * Added simple rules for validations;
+
+## Version 0.1.1 (2018-10-09)
+
+* Update to `buildToolsVersion` 28.0.3
+* Update to `sdk` 28
+* Update to `androidx` namespace
+* Added Travis CI
+* Added sample unit test
