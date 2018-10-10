@@ -19,7 +19,12 @@ package br.com.ilhasoft.support.validation.binding;
 import androidx.databinding.BindingAdapter;
 import android.widget.TextView;
 
+import org.threeten.bp.format.DateTimeFormatter;
+
 import br.com.ilhasoft.support.validation.R;
+import br.com.ilhasoft.support.validation.entity.DateIntervalRuleParam;
+import br.com.ilhasoft.support.validation.entity.DateIntervalType;
+import br.com.ilhasoft.support.validation.rule.DateIntervalRule;
 import br.com.ilhasoft.support.validation.rule.DateRule;
 import br.com.ilhasoft.support.validation.util.EditTextHandler;
 import br.com.ilhasoft.support.validation.util.ErrorMessageHelper;
@@ -39,6 +44,24 @@ public class DateBindings {
         String handledErrorMessage = ErrorMessageHelper.getStringOrDefault(view,
                 errorMessage, R.string.error_message_date_validation);
         ViewTagHelper.appendValue(R.id.validator_rule, view, new DateRule(view, pattern, handledErrorMessage));
+    }
+
+    @BindingAdapter(value = {"datePattern", "millisInterval", "millisBaseTime", "dateIntervalType", "validateDateMessage", "validateDateAutoDismiss"}, requireAll = false)
+    public static void bindingDateInterval(TextView view, DateTimeFormatter dateTimeFormatter, Long millisInterval, Long millisBaseTime, DateIntervalType dateIntervalType, String errorMessage, boolean autoDismiss) {
+        if (autoDismiss) {
+            EditTextHandler.disableErrorOnChanged(view);
+        }
+
+        String handledErrorMessage = ErrorMessageHelper.getStringOrDefault(view, errorMessage, R.string.error_message_date_validation);
+        ViewTagHelper.appendValue(
+                R.id.validator_rule,
+                view,
+                new DateIntervalRule(
+                        view,
+                        new DateIntervalRuleParam(dateTimeFormatter, millisInterval, millisBaseTime, dateIntervalType),
+                        handledErrorMessage
+                )
+        );
     }
 
 }

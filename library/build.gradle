@@ -1,11 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.github.dcendents.android-maven'
-
-group='org.bitbucket.ilhasoft'
 
 ext.androidXVersion = '1.0.0'
 ext.apacheCommonsValidatorsVersion = '1.4.0'
+ext.threeTenAbpVersion = '1.1.0'
 ext.robolectricVersion = '4.0-beta-1'
 
 android {
@@ -32,6 +30,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$androidXVersion"
     implementation "commons-validator:commons-validator:$apacheCommonsValidatorsVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation "com.jakewharton.threetenabp:threetenabp:$threeTenAbpVersion"
     api "com.google.android.material:material:$androidXVersion"
     testImplementation 'junit:junit:4.12'
     testImplementation "org.robolectric:robolectric:$robolectricVersion"
@@ -44,7 +43,7 @@ task sourcesJar(type: Jar) {
 }
 
 task javadoc(type: Javadoc) {
-    failOnError  false
+    failOnError false
     source = android.sourceSets.main.java.sourceFiles
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
     classpath += configurations.compile
