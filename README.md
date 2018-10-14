@@ -1,9 +1,16 @@
-# Data Binding Validator by Ilhasoft
+# Data Binding Validator by Ilhasoft (fork by wzieba)
 
-[![Release](https://jitpack.io/v/Ilhasoft/data-binding-validator.svg?style=flag-square?style=flat-square)](https://jitpack.io/#Ilhasoft/data-binding-validator)
+[![Release](https://jitpack.io/v/wzieba/data-binding-validator.svg)](https://jitpack.io/#wzieba/data-binding-validator)
 [![Build Status](https://travis-ci.com/wzieba/data-binding-validator.svg?branch=master)](https://travis-ci.com/wzieba/data-binding-validator)
 
 The Data Binding Validator makes it easy and quick to validate fields in forms using data binding framework.
+
+## Note
+This is fork of library by Ilhasoft which appears to be no longer maintained. It contains additional validators as well as newest build tools and `androidx` namespace is used.
+
+This fork shares the same license as library (Apache License 2.0)
+
+PRs are welcome!
 
 ## Download
 
@@ -21,10 +28,9 @@ allprojects {
 Step 2: Add the dependency
 ```
   dependencies {
-    compile 'com.github.Ilhasoft:data-binding-validator:LATEST-VERSION'
+    compile 'com.github.wzieba:data-binding-validator:LATEST-VERSION'
   }
 ```
-Latest Version: [![Latest version](https://jitpack.io/v/Ilhasoft/data-binding-validator.svg?style=flat-square)](https://jitpack.io/#Ilhasoft/data-binding-validator)
 
 
 ## Features:
@@ -212,7 +218,7 @@ If you want to come back to the default way, call `validator.enableFieldValidati
 
 ### Auto dismiss ###
 
-By default, the library prompts error messages and doens't dismiss the error automatically, however, you can add on your layout validation the same rule name by adding `AutoDismiss` at the end, which receives a `boolean`. In this case it could dismiss the error automatically. For example:
+By default, the library prompts error messages and doesn't dismiss the error automatically, however, you can add on your layout validation the same rule name by adding `AutoDismiss` at the end, which receives a `boolean`. In this case it could dismiss the error automatically. For example:
 
 ```
 <EditText

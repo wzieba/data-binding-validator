@@ -55,8 +55,13 @@
 
 ## Version 0.1.1 (2018-10-09)
 
+* Added phone number validation
 * Update to `buildToolsVersion` 28.0.3
 * Update to `sdk` 28
 * Update to `androidx` namespace
 * Added Travis CI
 * Added sample unit test
+
+## Versions 0.1.2 (2018-10-14)
+
+* Added date interval validation
